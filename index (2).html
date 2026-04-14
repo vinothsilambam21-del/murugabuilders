@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muruga Builders | Premium Plots & Villas in Salem</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            light: '#f9d976',
+                            dark: '#aa8c2c'
+                        },
+                        dark: {
+                            DEFAULT: '#050505',
+                            card: '#111111',
+                            lighter: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #d4af37 0%, #f9d976 50%, #aa8c2c 100%)',
+                        'gold-text': 'linear-gradient(to right, #d4af37, #f9d976)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+
+        #loader { transition: opacity 0.6s ease, visibility 0.6s ease; }
+
+        .hero-bg {
+            background-image: url('banner.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: zoomInOut 20s infinite alternate;
+        }
+        @keyframes zoomInOut {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #d4af37, #f9d976, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-3d {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        .card-3d:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+            box-shadow: -10px 15px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-btn { animation: pulse-glow 2s infinite; }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-black">
+<!-- Loader -->
+<div id="loader" class="fixed inset-0 z-[9999] bg-dark flex flex-col items-center justify-center"><img src="logo.png" alt="Muruga Builders" class="h-10 w-10 object-cover rounded shadow-[0_0_15px_rgba(212,175,55,0.3)] transition duration-300 group-hover:scale-105" style="display:block; margin-left:auto; margin-right:auto;">
+<div class="h-1 w-48 bg-dark-lighter rounded-full overflow-hidden mt-4">
+<div class="h-full bg-gold animate-[progress_1.5s_ease-in-out_infinite] w-1/2 rounded-full origin-left" style="animation: progress 1.5s infinite;"></div>
+</div>
+</div>
+<!-- Navbar --><header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-black/50 backdrop-blur-md border-b border-white/5">
+<div class="max-w-7xl mx-auto flex justify-between items-center"><a href="#home" class="flex items-center gap-3 group"><img src="logo.png" alt="Muruga Builders" class="h-10 w-10 object-cover rounded shadow-[0_0_15px_rgba(212,175,55,0.3)] transition duration-300 group-hover:scale-105" style="display:block; margin-left:auto; margin-right:auto;"> </a>
+<div class="flex flex-col"><span class="font-serif text-xl font-bold tracking-wider text-white leading-tight">MURUGA BUILDERS</span> <span class="text-[10px] text-gold tracking-[0.2em] uppercase">by Balakrishnan</span></div>
+<nav class="hidden md:flex gap-8 items-center"><a href="#home" class="text-sm font-medium text-gray-300 hover:text-gold transition-colors">Home</a> <a href="#about" class="text-sm font-medium text-gray-300 hover:text-gold transition-colors">About</a> <a href="#projects" class="text-sm font-medium text-gray-300 hover:text-gold transition-colors">Projects</a> <a href="#gallery" class="text-sm font-medium text-gray-300 hover:text-gold transition-colors">Gallery</a> <a href="#contact" class="px-5 py-2 text-sm font-medium text-black bg-gold hover:bg-gold-light rounded-full transition-all shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)]">Contact Us</a></nav><button id="mobile-menu-btn" class="md:hidden text-gold text-3xl"> <i class="ph ph-list"></i> </button></div>
+<div id="mobile-menu" class="absolute top-full left-0 w-full bg-dark-card border-b border-gold/20 hidden flex-col items-center py-6 gap-6 shadow-2xl transition-all"><a href="#home" class="mobile-link text-lg text-gray-300 hover:text-gold">Home</a> <a href="#about" class="mobile-link text-lg text-gray-300 hover:text-gold">About</a> <a href="#projects" class="mobile-link text-lg text-gray-300 hover:text-gold">Projects</a> <a href="#gallery" class="mobile-link text-lg text-gray-300 hover:text-gold">Gallery</a> <a href="#contact" class="mobile-link px-6 py-2 text-black bg-gold rounded-full">Contact Us</a></div>
+</header><!-- Hero Section -->
+<section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<div class="hero-bg absolute inset-0 w-full h-full origin-center"></div>
+</div>
+<div class="absolute inset-0 z-10 bg-gradient-to-b from-black/80 via-black/60 to-dark"></div>
+<div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-20"><span class="inline-block py-1 px-3 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold tracking-widest mb-6 uppercase reveal">Premium Real Estate in Salem</span>
+<h1 class="font-serif text-5xl md:text-7xl font-bold text-white leading-tight mb-6 reveal" style="transition-delay: 100ms;">Build Your Legacy With <br /><span class="text-gradient">Muruga Builders</span></h1>
+<p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light reveal" style="transition-delay: 200ms;">Over 16 years of excellence in crafting luxury villas, premium residential plots, and commercial spaces.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay: 300ms;"><a href="#projects" class="px-8 py-4 bg-gold hover:bg-gold-light text-black font-semibold rounded-md transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)]">View Projects</a> <a href="https://wa.me/919952611142" target="_blank" class="px-8 py-4 bg-transparent border border-gold text-gold hover:bg-gold/10 font-semibold rounded-md transition-all flex items-center justify-center gap-2" rel="noopener"> <i class="ph ph-whatsapp-logo text-xl"></i> Chat on WhatsApp </a></div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce text-gold/50 text-3xl"><i class="ph ph-caret-down"></i></div>
+</section>
+<!-- Stats Section -->
+<section class="py-12 bg-dark-card border-y border-white/5 relative z-30">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+<div class="reveal">
+<h3 class="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">16+</h3>
+<p class="text-sm text-gray-400 uppercase tracking-wider">Years Experience</p>
+</div>
+<div class="reveal" style="transition-delay: 100ms;">
+<h3 class="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">30+</h3>
+<p class="text-sm text-gray-400 uppercase tracking-wider">Projects Completed</p>
+</div>
+<div class="reveal" style="transition-delay: 200ms;">
+<h3 class="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">100+</h3>
+<p class="text-sm text-gray-400 uppercase tracking-wider">Happy Families</p>
+</div>
+<div class="reveal" style="transition-delay: 300ms;">
+<h3 class="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">100%</h3>
+<p class="text-sm text-gray-400 uppercase tracking-wider">Client Satisfaction</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-24 bg-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="w-full lg:w-1/2 reveal relative">
+<div class="absolute -inset-4 border border-gold/20 rounded-lg translate-x-4 translate-y-4 -z-10"></div>
+<img src="about.jpg" alt="Modern Architecture" class="rounded-lg shadow-2xl w-full h-[500px] object-cover" />
+<div class="flex items-center gap-4"><i class="ph-fill ph-seal-check text-gold text-4xl"></i>
+<div>
+<h4 class="font-serif font-bold text-xl">DTCP Approved</h4>
+<p class="text-gray-400 text-sm">100% Clear Titles</p>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 reveal" style="transition-delay: 200ms;">
+<h4 class="text-gold font-semibold tracking-widest uppercase text-sm mb-2">About Us</h4>
+<h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Crafting Dreams Since 2008</h2>
+<p class="text-gray-300 mb-6 leading-relaxed">Founded by Mr. Balakrishnan, Muruga Builders has established itself as a premier real estate developer in Salem. We believe in building more than just houses; we create thriving communities and lucrative investment opportunities.</p>
+<p class="text-gray-300 mb-8 leading-relaxed">With over 16 years of unwavering dedication, we specialize in premium residential plots, luxury villas, and custom construction projects tailored to your specific needs.</p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3"><i class="ph-bold ph-check text-gold"></i> Premium Locations in Salem</li>
+<li class="flex items-center gap-3"><i class="ph-bold ph-check text-gold"></i> Vastu Compliant Designs</li>
+<li class="flex items-center gap-3"><i class="ph-bold ph-check text-gold"></i> Transparent Documentation</li>
+</ul>
+<a href="#contact" class="inline-flex items-center gap-2 text-gold hover:text-gold-light border-b border-gold pb-1 transition-colors"> Discover More <i class="ph ph-arrow-right"></i> </a></div>
+</div>
+</div>
+</section>
+<!-- ✅ UPDATED Projects Section -->
+<section id="projects" class="py-24 bg-dark-lighter border-y border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-3xl mx-auto mb-16 reveal">
+<h4 class="text-gold font-semibold tracking-widest uppercase text-sm mb-2">Our Portfolio</h4>
+<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Our Projects</h2>
+<p class="text-gray-400">Explore our finest developments that redefine luxury living and offer unmatched investment potential.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"><!-- Card 2: Upcoming Project -->
+<div class="card-3d bg-dark-card rounded-xl overflow-hidden border border-white/10 group reveal" style="transition-delay: 100ms;">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+<img src="kannankurichi.jpg" alt="Upcoming Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+<div class="absolute top-4 right-4 z-20 bg-dark text-white text-xs font-bold px-3 py-1 rounded-full border border-white/20">Upcoming</div>
+</div>
+<div class="p-6 relative">
+<div class="w-12 h-12 bg-dark rounded-full border border-gold/30 flex items-center justify-center absolute -top-6 right-6 z-20 text-gold text-xl group-hover:bg-gold group-hover:text-black transition-colors"><i class="ph-fill ph-house-line"></i></div>
+<h3 class="font-serif text-2xl font-bold mb-2 group-hover:text-gold transition-colors">Upcoming Project</h3>
+<p class="text-gray-400 text-sm mb-3"><i class="ph ph-map-pin mr-1"></i>Kannankurichi, Salem</p>
+<p class="text-gray-400 text-sm leading-relaxed">Premium residential plots coming soon in a fast-growing area with excellent future value.</p>
+<div class="flex justify-between items-center pt-4 border-t border-white/10 mt-4"><span class="text-sm font-medium text-gold flex items-center gap-1"><i class="ph-fill ph-clock"></i> Coming Soon</span> <a href="#contact" class="text-gold text-sm font-semibold hover:underline">Get Notified</a></div>
+</div>
+</div>
+<!-- Card 3: Available Plots -->
+<div class="card-3d bg-dark-card rounded-xl overflow-hidden border border-gold/30 group reveal" style="transition-delay: 200ms;">
+<div class="relative h-64 overflow-hidden">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+<img src="plots.jpg" alt="Available Plots" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+<div class="absolute top-4 right-4 z-20 bg-gold text-black text-xs font-bold px-3 py-1 rounded-full">Available Now</div>
+</div>
+<div class="p-6 relative">
+<div class="w-12 h-12 bg-dark rounded-full border border-gold/30 flex items-center justify-center absolute -top-6 right-6 z-20 text-gold text-xl group-hover:bg-gold group-hover:text-black transition-colors"><i class="ph-fill ph-map-pin"></i></div>
+<h3 class="font-serif text-2xl font-bold mb-2 group-hover:text-gold transition-colors">Available Plots</h3>
+<p class="text-gray-400 text-sm mb-3"><i class="ph ph-map-pin mr-1"></i>Kannankurichi, Salem</p>
+<p class="text-gradient font-bold text-xl mb-1">Starting from ₹1.10 Cr</p>
+<p class="text-gray-400 text-sm mb-3">Price Range: ₹1.10 Cr – ₹1.40 Cr</p>
+<div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-gold/10 border border-gold/20 text-gold px-2 py-1 rounded-full">Clear Docs</span> <span class="text-xs bg-gold/10 border border-gold/20 text-gold px-2 py-1 rounded-full">Prime Location</span> <span class="text-xs bg-gold/10 border border-gold/20 text-gold px-2 py-1 rounded-full">Investment Ready</span></div>
+<div class="pt-4 border-t border-white/10"><button onclick="openPopup()" class="w-full inline-block text-center bg-gold hover:bg-gold-light text-black font-bold py-2 rounded transition-colors shadow-[0_0_15px_rgba(212,175,55,0.2)]">Enquire Now</button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Banner Section -->
+<section class="py-20 relative bg-fixed bg-center bg-cover" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&amp;w=2000&amp;auto=format&amp;fit=crop');">
+<div class="max-w-4xl mx-auto px-6 text-center reveal"><i class="ph-fill ph-crown text-5xl text-gold mb-6 inline-block"></i>
+<h2 class="font-serif text-3xl md:text-5xl font-bold mb-6 leading-tight">Looking to build your custom dream home on your plot?</h2>
+<p class="text-gray-300 text-lg mb-8">We offer end-to-end turnkey construction services with uncompromising quality.</p>
+<a href="tel:+919952611142" class="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-black font-semibold rounded-md transition-all"> <i class="ph-fill ph-phone-call"></i> +91 99526 11142 </a></div>
+</section>
+<!-- Gallery Section -->
+<section id="gallery" class="py-24 bg-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+<div>
+<h4 class="text-gold font-semibold tracking-widest uppercase text-sm mb-2">Visuals</h4>
+<h2 class="font-serif text-4xl md:text-5xl font-bold">Project Gallery</h2>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="overflow-hidden rounded-lg reveal" style="height:250px;">
+    <img src="g1.jpg" onclick="openLightbox(this)" class="w-full object-cover hover:scale-110 transition cursor-pointer" style="height:250px;">
+</div>
+
+<div class="overflow-hidden rounded-lg reveal" style="height:250px;">
+    <img src="g2.jpg" onclick="openLightbox(this)" class="w-full object-cover hover:scale-110 transition cursor-pointer" style="height:250px;">
+</div>
+
+<div class="overflow-hidden rounded-lg reveal" style="height:250px;">
+    <img src="g3.jpg" onclick="openLightbox(this)" class="w-full object-cover hover:scale-110 transition cursor-pointer" style="height:250px;">
+</div>
+
+<div class="overflow-hidden rounded-lg reveal" style="height:250px;">
+    <img src="g4.jpg" onclick="openLightbox(this)" class="w-full object-cover hover:scale-110 transition cursor-pointer" style="height:250px;">
+</div>
+
+<div class="overflow-hidden rounded-lg col-span-2 md:col-span-2 reveal" style="height:250px;">
+    <img src="g5.jpg" onclick="openLightbox(this)" class="w-full object-cover hover:scale-110 transition cursor-pointer" style="height:250px;">
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-24 bg-dark-lighter border-y border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16 reveal"><i class="ph-fill ph-quotes text-4xl text-gold/50 mb-4 inline-block"></i>
+<h2 class="font-serif text-4xl font-bold mb-4">Client Success Stories</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-dark-card p-8 rounded-xl border border-white/5 hover:border-gold/30 transition-colors reveal">
+<div class="flex gap-1 text-gold mb-4"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+<p class="text-gray-300 mb-6 italic leading-relaxed">"Very genuine builder. The documentations were crystal clear, and they guided us through the entire plot buying process smoothly. Highly recommended for property in Salem."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-dark rounded-full flex items-center justify-center font-bold text-gold border border-gold/20">S</div>
+<div>
+<h5 class="font-bold">Senthil Kumar</h5>
+<p class="text-xs text-gray-500">Plot Buyer</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-card p-8 rounded-xl border border-white/5 hover:border-gold/30 transition-colors reveal" style="transition-delay: 100ms;">
+<div class="flex gap-1 text-gold mb-4"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+<p class="text-gray-300 mb-6 italic leading-relaxed">"Excellent investment opportunity. I purchased a plot in Kannankurichi through Muruga Builders, and the appreciation has been fantastic. Mr. Balakrishnan is very trustworthy."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-dark rounded-full flex items-center justify-center font-bold text-gold border border-gold/20">R</div>
+<div>
+<h5 class="font-bold">Ramesh V.</h5>
+<p class="text-xs text-gray-500">Investor</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-card p-8 rounded-xl border border-white/5 hover:border-gold/30 transition-colors reveal" style="transition-delay: 200ms;">
+<div class="flex gap-1 text-gold mb-4"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+<p class="text-gray-300 mb-6 italic leading-relaxed">"Their construction quality is top-notch. They built our dream home within the promised timeline and budget. The aesthetic and structural strength are both commendable."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-dark rounded-full flex items-center justify-center font-bold text-gold border border-gold/20">K</div>
+<div>
+<h5 class="font-bold">Karthikeyan M.</h5>
+<p class="text-xs text-gray-500">Home Owner</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div class="reveal">
+<h4 class="text-gold font-semibold tracking-widest uppercase text-sm mb-2">Get in touch</h4>
+<h2 class="font-serif text-4xl md:text-5xl font-bold mb-8">Let's Discuss Your Dream Property</h2>
+<p class="text-gray-400 mb-10">Whether you are looking for an investment plot or planning to build your dream home, we are here to assist you every step of the way.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-dark-card border border-gold/20 rounded-full flex items-center justify-center text-gold shrink-0"><i class="ph-fill ph-map-pin text-xl"></i></div>
+<div>
+<h5 class="font-bold text-lg mb-1">Office Address</h5>
+<p class="text-gray-400">Kannankurichi,<br />Salem – 636008, Tamil Nadu</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-dark-card border border-gold/20 rounded-full flex items-center justify-center text-gold shrink-0"><i class="ph-fill ph-phone text-xl"></i></div>
+<div>
+<h5 class="font-bold text-lg mb-1">Phone Number</h5>
+<a href="tel:+919952611142" class="text-gray-400 hover:text-gold transition-colors">+91 99526 11142</a></div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-dark-card border border-gold/20 rounded-full flex items-center justify-center text-gold shrink-0"><i class="ph-fill ph-envelope-simple text-xl"></i></div>
+<div>
+<h5 class="font-bold text-lg mb-1">Email Address</h5>
+<a href="/cdn-cgi/l/email-protection#c4adaaa2ab84a9b1b6b1a3a5a6b1ada8a0a1b6b7eaa7aba9" class="text-gray-400 hover:text-gold transition-colors"><span class="__cf_email__" data-cfemail="0861666e6748657d7a7d6f696a7d61646c6d7a7b266b6765">[email&#160;protected]</span></a></div>
+</div>
+</div>
+</div>
+<div class="reveal" style="transition-delay: 200ms;">
+<div class="bg-dark-card p-8 rounded-xl border border-white/5 shadow-2xl mb-8">
+<h3 class="font-serif text-2xl font-bold mb-6">Send an Inquiry</h3>
+<form onsubmit="event.preventDefault(); alert('Thank you for your message. We will get back to you shortly.');" class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4"><input type="text" placeholder="Your Name" required="" class="w-full bg-dark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder:text-gray-600" /> <input type="tel" placeholder="Phone Number" required="" class="w-full bg-dark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder:text-gray-600" /></div>
+<input type="email" placeholder="Email Address" class="w-full bg-dark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder:text-gray-600" /> <textarea placeholder="Your Message" rows="4" required="" class="w-full bg-dark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder:text-gray-600 resize-none"></textarea> <button type="submit" class="w-full bg-gold hover:bg-gold-light text-black font-bold py-4 rounded transition-colors shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]"> Submit Message </button></form></div>
+<div class="w-full h-48 rounded-xl overflow-hidden border border-white/5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"><iframe width="100%" height="100%" style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.0381442111874!2d78.1636254!3d11.6914565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1bb2ce6b12f%3A0xc3fec3f31e33c67c!2sKannankurichi%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1689000000000!5m2!1sen!2sin" allowfullscreen="allowfullscreen" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer --><footer class="bg-black border-t border-white/10 pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="md:col-span-2"><a href="#home" class="flex items-center gap-3 mb-6"> <img src="logo.png" alt="Muruga Builders" class="h-10 w-10 object-cover rounded"> <span class="font-serif text-xl font-bold tracking-wider text-white">MURUGA BUILDERS</span> </a>
+<p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">Premium real estate developers in Salem, specializing in DTCP approved plots, luxury villas, and custom home construction. Trust built over 16 years.</p>
+<div class="flex gap-4"><a href="#" class="w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a> <a href="#" class="w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a> <a href="#" class="w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-colors"><i class="ph-fill ph-twitter-logo text-xl"></i></a></div>
+</div>
+<div>
+<h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h5>
+<ul class="space-y-3">
+<li><a href="#home" class="text-gray-400 hover:text-gold transition-colors text-sm">Home</a></li>
+<li><a href="#about" class="text-gray-400 hover:text-gold transition-colors text-sm">About Us</a></li>
+<li><a href="#projects" class="text-gray-400 hover:text-gold transition-colors text-sm">Projects</a></li>
+<li><a href="#gallery" class="text-gray-400 hover:text-gold transition-colors text-sm">Gallery</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-gold transition-colors text-sm">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Services</h5>
+<ul class="space-y-3">
+<li class="text-gray-400 text-sm">Residential Plots</li>
+<li class="text-gray-400 text-sm">Luxury Villas</li>
+<li class="text-gray-400 text-sm">Turnkey Construction</li>
+<li class="text-gray-400 text-sm">Property Investment</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-500 text-sm">© 2024 Muruga Builders. All Rights Reserved.</p>
+<p class="text-gray-600 text-sm flex items-center gap-1">Designed with <i class="ph-fill ph-heart text-gold"></i> for Salem</p>
+</div>
+</div>
+</footer><!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919952611142" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform whatsapp-btn flex items-center justify-center group" aria-label="Chat on WhatsApp" rel="noopener"> <i class="ph-fill ph-whatsapp-logo text-3xl"></i> <span class="absolute right-full mr-4 bg-dark-card border border-white/10 text-white text-sm px-3 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden md:block"> Chat with us </span> </a>
+<!-- Scripts -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => { loader.style.display = 'none'; }, 600);
+            }, 800);
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/95', 'shadow-lg');
+                navbar.classList.remove('bg-black/50', 'py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('bg-black/95', 'shadow-lg', 'py-2');
+                navbar.classList.add('bg-black/50', 'py-4');
+            }
+        });
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('hidden')){
+                icon.classList.replace('ph-x', 'ph-list');
+            } else {
+                icon.classList.replace('ph-list', 'ph-x');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                mobileBtn.querySelector('i').classList.replace('ph-x', 'ph-list');
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Popup functions
+        function openPopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function sendWhatsApp() {
+            const name = document.getElementById('popup-name').value.trim();
+            const phone = document.getElementById('popup-phone').value.trim();
+            const message = document.getElementById('popup-message').value.trim();
+
+            if (!name || !phone) {
+                alert('Please enter your name and phone number.');
+                return;
+            }
+
+            const text = `Hello Muruga Builders!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Message:* ${encodeURIComponent(message || 'I am interested in your plots.')}`;
+            window.open(`https://wa.me/919952611142?text=${text}`, '_blank');
+            closePopup();
+        }
+
+        // Close popup on backdrop click
+        document.getElementById('popup').addEventListener('click', function(e) {
+            if (e.target === this) closePopup();
+        });
+    </script>
+<!-- Enquiry Popup -->
+<div id="popup" style="display: none;" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4">
+<div class="bg-dark-card border border-gold/30 rounded-2xl shadow-2xl w-full max-w-md p-8 relative"><!-- Close Button --> <button onclick="closePopup()" class="absolute top-4 right-4 text-gray-400 hover:text-gold transition-colors text-2xl"> <i class="ph ph-x"></i> </button> <!-- Header -->
+<div class="mb-6">
+<h3 class="font-serif text-2xl font-bold text-white mb-1">Send an Enquiry</h3>
+<p class="text-gray-400 text-sm">We'll get back to you on WhatsApp instantly.</p>
+</div>
+<!-- Form Fields -->
+<div class="space-y-4"><input id="popup-name" type="text" placeholder="Your Name" class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder:text-gray-600" /> <input id="popup-phone" type="tel" placeholder="Phone Number" class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder:text-gray-600" /> <textarea id="popup-message" placeholder="Your Message (optional)" rows="3" class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors placeholder:text-gray-600 resize-none"></textarea></div>
+<!-- Buttons -->
+<div class="mt-6 flex flex-col gap-3"><button onclick="sendWhatsApp()" class="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-3 rounded-lg transition-colors shadow-lg"> <i class="ph-fill ph-whatsapp-logo text-xl"></i> Send via WhatsApp </button> <button onclick="closePopup()" class="w-full py-3 rounded-lg border border-white/10 text-gray-400 hover:text-white hover:border-white/30 transition-colors text-sm"> Cancel </button></div>
+</div>
+</div>
+<div id="lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center;">
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90vh; border-radius:8px; box-shadow:0 0 40px rgba(212,175,55,0.3);" />
+</div>
+<script>
+function openLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    const lb = document.getElementById('lightbox');
+    lb.style.display = 'flex';
+}
+</script>
+</body>
+</html>
